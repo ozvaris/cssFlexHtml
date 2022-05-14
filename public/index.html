@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <title>flex test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#justify-content').val($('.navigation').css('justify-content'));
+        $('#justify-content').change(function () {
+          // alert(
+          //   $('.navigation').css('justify-content') +
+          //     ' changed to ' +
+          //     $(this).val()
+          // );
+          $('.navigation').css('justify-content', $(this).val());
+        });
+        $('#txtContainerWidth').val($('.header-container').css('width'));
+        $('#btnChangeContainerWidth').click(function () {
+          $('.header-container').css('width', $('#txtContainerWidth').val());
+        });
+      });
+    </script>
+    <style>
+      .container {
+        display: flex;
+        flex-flow: column wrap;
+      }
+
+      .flex-dynamic-controller {
+        display: flex;
+        flex-flow: row wrap;
+        padding-bottom: 10px;
+      }
+
+      .flex-dynamic-controller-item {
+        display: flex;
+        flex-flow: row wrap;
+        padding-left: 10px;
+      }
+
+      .header-container {
+        width: 100%;
+      }
+
+      .navigation {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        list-style: none;
+        margin: 0;
+        background: deepskyblue;
+      }
+
+      .navigation a {
+        text-decoration: none;
+        display: block;
+        padding: 1em;
+        color: white;
+      }
+
+      .navigation a:hover {
+        background: #1565c0;
+      }
+
+      .menu-item {
+        border: 1px;
+        border-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="flex-dynamic-controller-form">
+        <div style="padding: 10px">Flex dynamic controller</div>
+        <div class="flex-dynamic-controller">
+          <div class="flex-dynamic-controller-item">
+            <label for="justify-content">justify content:</label>
+            <select name="justify-content" id="justify-content">
+              <option value="flex-start">flex-start</option>
+              <option value="space-evenly">space-evenly</option>
+              <option value="space-between">space-between</option>
+              <option value="space-around">space-around</option>
+              <option value="flex-end">flex-end</option>
+              <option value="start">start</option>
+              <option value="left">left</option>
+              <option value="right">right</option>
+              <option value="center">center</option>
+              <option value="end">end</option>
+            </select>
+          </div>
+          <div class="flex-dynamic-controller-item">
+            <label for="txtContainerWidth">container width:</label>
+            <input
+              name="txtContainerWidth"
+              id="txtContainerWidth"
+              type="text"
+              style="width: 100px"
+            />
+            <input
+              name="btnChangeContainerWidth"
+              id="btnChangeContainerWidth"
+              type="button"
+              value="change"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header-container">
+        <div class="navigation">
+          <div class="menu-item"><a href="#">Home</a></div>
+          <div class="menu-item"><a href="#">About</a></div>
+          <div class="menu-item"><a href="#">Products</a></div>
+          <div class="menu-item"><a href="#">Contact</a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
