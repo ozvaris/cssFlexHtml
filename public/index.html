@@ -1,144 +1,353 @@
 <html>
-  <head>
-    <title>flex test</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        //$('#justify-content').val($('.navigation').css('justify-content'));
-        $('#justify-content').change(function () {
-          // alert(
-          //   $('.navigation').css('justify-content') +
-          //     ' changed to ' +
-          //     $(this).val()
-          // );
-          $('.navigation').css('justify-content', $(this).val());
-        });
-        
-        $('#txtContainerWidth').val($('.header-container').css('width'));
-        $('#btnChangeContainerWidth').click(function () {
-          $('.header-container').css('width', $('#txtContainerWidth').val());
-        });
+
+<head>
+  <title>flex test</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      //$('#justify-content').val($('.navigation').css('justify-content'));
+      $('#justify-content').change(function () {
+        // alert(
+        //   $('.navigation').css('justify-content') +
+        //     ' changed to ' +
+        //     $(this).val()
+        // );
+        $('.navigation').css('justify-content', $(this).val());
       });
-    </script>
-    <style>
-      .container {
-        display: flex;
-        flex-flow: column wrap;
-      }
 
-      .flex-dynamic-controller {
-        display: flex;
-        flex-flow: row wrap;
-        padding-bottom: 10px;
-      }
+      $('#txtContainerWidth').val($('.menu1-container').css('width'));
+      $('#btnChangeContainerWidth').click(function () {
+        $('.menu1-container').css('width', $('#txtContainerWidth').val());
+      });
+    });
+  </script>
+  <style>
+    .container {
+      display: flex;
+      flex-flow: column wrap;
+    }
 
-      .flex-dynamic-controller-item {
-        display: flex;
-        flex-flow: row wrap;
-        padding-left: 10px;
-      }
+    .flex-dynamic-controller {
+      display: flex;
+      flex-flow: row wrap;
+      padding-bottom: 10px;
+    }
 
-      .header-container {
-        width: 100%;
-      }
+    .flex-dynamic-controller-item {
+      display: flex;
+      flex-flow: row wrap;
+      padding-left: 10px;
+    }
 
+
+    /*menu1 -----------------------------*/
+
+    .menu1-container {
+      width: 100%;
+      padding-bottom: 10px;
+    }
+
+    .navigation {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+
+      list-style: none;
+      margin: 0;
+      background: deepskyblue;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: white;
+    }
+
+    .navigation a:hover {
+      background: #1565c0;
+    }
+
+    @media all and (max-width: 800px) {
       .navigation {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-end;
+        justify-content: space-around;
+      }
+    }
 
-        list-style: none;
-        margin: 0;
-        background: deepskyblue;
+    @media all and (max-width: 600px) {
+      .navigation {
+        flex-flow: column wrap;
+        padding: 0;
       }
 
       .navigation a {
-        text-decoration: none;
-        display: block;
-        padding: 1em;
-        color: white;
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       }
 
-      .navigation a:hover {
-        background: #1565c0;
+      .navigation li:last-of-type a {
+        border-bottom: none;
+      }
+    }
+
+    .menu-item {
+      border: 1px;
+      border-style: solid;
+      border-color: black;
+    }
+
+    /*menu2 -----------------------------*/
+    .menu2-container {
+      width: 100%;
+      padding-bottom: 10px;
+    }
+
+    .navigation2 {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      list-style: none;
+      margin: 0;
+      background: deepskyblue;
+    }
+
+    .navigation2 a {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: white;
+    }
+
+    .navigation2 a:hover {
+      background: #1565c0;
+    }
+
+    @media all and (max-width: 800px) {
+      .navigation2 {
+        justify-content: space-around;
+      }
+    }
+
+    @media all and (max-width: 600px) {
+      .navigation2 {
+        flex-flow: column wrap;
+        padding: 0;
       }
 
-      @media all and (max-width: 800px) {
-        .navigation {
-          justify-content: space-around;
-        }
+      .navigation2 a {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       }
 
-      @media all and (max-width: 600px) {
-        .navigation {
-          flex-flow: column wrap;
-          padding: 0;
-        }
-        .navigation a {
-          text-align: center;
-          padding: 10px;
-          border-top: 1px solid rgba(255, 255, 255, 0.3);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        .navigation li:last-of-type a {
-          border-bottom: none;
-        }
+      .navigation2 li:last-of-type a {
+        border-bottom: none;
+      }
+    }
+
+    .menu2-item {
+      border: 1px;
+      border-style: solid;
+      border-color: black;
+    }
+
+    .navigation2 .class1 {
+      flex: 1;
+    }
+
+    /*menu3 -----------------------------*/
+    .menu3-container {
+      width: 100%;
+      padding-bottom: 10px;
+    }
+
+    .navigation3 {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      list-style: none;
+      margin: 0;
+      background: deepskyblue;
+    }
+
+    .navigation3 a {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: white;
+    }
+
+    .navigation3 a:hover {
+      background: #1565c0;
+    }
+
+    @media all and (max-width: 800px) {
+      .navigation3 {
+        justify-content: space-around;
+      }
+    }
+
+    @media all and (max-width: 600px) {
+      .navigation3 {
+        flex-flow: column wrap;
+        padding: 0;
       }
 
-      .menu-item {
-        border: 1px;
-        border-style: solid;
-        border-color: black;
+      .navigation3 a {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       }
-    </style>
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="flex-dynamic-controller-form">
-        <div style="padding: 10px">Flex dynamic controller</div>
-        <div class="flex-dynamic-controller">
-          <div class="flex-dynamic-controller-item">
-            <label for="justify-content">justify content:</label>
-            <select name="justify-content" id="justify-content">
-              <option value="">default css</option>
-              <option value="flex-start">flex-start</option>
-              <option value="space-evenly">space-evenly</option>
-              <option value="space-between">space-between</option>
-              <option value="space-around">space-around</option>
-              <option value="flex-end">flex-end</option>
-              <option value="start">start</option>
-              <option value="left">left</option>
-              <option value="right">right</option>
-              <option value="center">center</option>
-              <option value="end">end</option>
-            </select>
-          </div>
-          <div class="flex-dynamic-controller-item">
-            <label for="txtContainerWidth">container width:</label>
-            <input
-              name="txtContainerWidth"
-              id="txtContainerWidth"
-              type="text"
-              style="width: 100px"
-            />
-            <input
-              name="btnChangeContainerWidth"
-              id="btnChangeContainerWidth"
-              type="button"
-              value="change"
-            />
-          </div>
+      .navigation3 li:last-of-type a {
+        border-bottom: none;
+      }
+    }
+
+    .menu3-item {
+      border: 1px;
+      border-style: solid;
+      border-color: black;
+    }
+
+    .navigation3 .class2 {
+      flex: 1;
+    }
+
+    .centerContent {
+      display:flex;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+
+    /*menu4 -----------------------------*/
+    .menu4-container {
+      width: 100%;
+      padding-bottom: 10px;
+    }
+
+    .navigation4 {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      list-style: none;
+      margin: 0;
+      background: deepskyblue;
+    }
+
+    .navigation4 a {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: white;
+    }
+
+    .navigation4 a:hover {
+      background: #1565c0;
+    }
+
+    @media all and (max-width: 800px) {
+      .navigation4 {
+        justify-content: space-around;
+      }
+    }
+
+    @media all and (max-width: 600px) {
+      .navigation4 {
+        flex-flow: column wrap;
+        padding: 0;
+      }
+
+      .navigation4 a {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .navigation4 li:last-of-type a {
+        border-bottom: none;
+      }
+    }
+
+    .menu4-item {
+      border: 1px;
+      border-style: solid;
+      border-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="flex-dynamic-controller-form">
+      <div style="padding: 10px">Flex dynamic controller</div>
+      <div class="flex-dynamic-controller">
+        <div class="flex-dynamic-controller-item">
+          <label for="justify-content">justify content:</label>
+          <select name="justify-content" id="justify-content">
+            <option value="">default css</option>
+            <option value="flex-start">flex-start</option>
+            <option value="space-evenly">space-evenly</option>
+            <option value="space-between">space-between</option>
+            <option value="space-around">space-around</option>
+            <option value="flex-end">flex-end</option>
+            <option value="start">start</option>
+            <option value="left">left</option>
+            <option value="right">right</option>
+            <option value="center">center</option>
+            <option value="end">end</option>
+          </select>
         </div>
-      </div>
-      <div class="header-container">
-        <div class="navigation">
-          <div class="menu-item"><a href="#">Home</a></div>
-          <div class="menu-item"><a href="#">About</a></div>
-          <div class="menu-item"><a href="#">Products</a></div>
-          <div class="menu-item"><a href="#">Contact</a></div>
+        <div class="flex-dynamic-controller-item">
+          <label for="txtContainerWidth">container width:</label>
+          <input name="txtContainerWidth" id="txtContainerWidth" type="text" style="width: 100px" />
+          <input name="btnChangeContainerWidth" id="btnChangeContainerWidth" type="button" value="change" />
         </div>
       </div>
     </div>
-  </body>
+    <div class="menu1-container">
+      <div class="navigation">
+        <div class="menu-item"><a href="#">Home</a></div>
+        <div class="menu-item"><a href="#">About</a></div>
+        <div class="menu-item"><a href="#">Products</a></div>
+        <div class="menu-item"><a href="#">Contact</a></div>
+      </div>
+    </div>
+    <div class="menu2-container">
+      <div class="navigation2">
+        <div class="menu2-item class1"><a href="#">Home</a></div>
+        <div class="menu2-item class2"><a href="#">About</a></div>
+        <div class="menu2-item class3"><a href="#">Products</a></div>
+        <div class="menu2-item class4"><a href="#">Contact</a></div>
+      </div>
+    </div>
+    <div class="menu3-container">
+      <div class="navigation3">
+        <div class="menu3-item class1"><a href="#">Home</a></div>
+        <div class="menu3-item class2">
+          <div class="centerContent"><a href="#">About1</a></div>
+        </div>
+        <div class="menu3-item class3"><a href="#">Products</a></div>
+        <div class="menu3-item class4"><a href="#">Contact</a></div>
+      </div>
+    </div>
+    <div class="menu4-container">
+      <div class="navigation4">
+        <div class="class1"><a href="#">Home</a></div>
+        <div class="class2"><a href="#">About</a></div>
+        <div class="class3"><a href="#">Products</a></div>
+        <div class="class4"><a href="#">Contact</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
