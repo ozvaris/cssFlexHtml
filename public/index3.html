@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>flex test</title>
+
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      nav {
+        width: 100%;
+        background-color: darkgreen;
+        padding-left: 30px;
+        padding-right: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: inline-block;
+
+        border: 2px;
+        border-style: solid;
+        border-color: black;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-item a {
+        display: inline-block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: white;
+
+        border: 1px;
+        border-style: solid;
+        border-color: black;
+      }
+
+      .nav-item:hover {
+        background-color: white;
+      }
+
+      .nav-item:hover a {
+        color: darkgreen;
+      }
+
+      .logo img {
+        width: 175px;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="https://freecodecamp.org" class="logo">
+        <img
+          src="https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg"
+          alt="freeCodeCamp logo"
+        />
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#">Curriculum</a></li>
+        <li class="nav-item"><a href="#">Forum</a></li>
+        <li class="nav-item"><a href="#">News</a></li>
+        <li class="nav-item"><a href="#">Sign in</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
