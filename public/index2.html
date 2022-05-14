@@ -8,11 +8,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        
-        var content = [
-            {key: "content1", url: "http://", content: ""},
-            {key: "content2", url: "http://", content: ""},
-        ]
+        let arryContent = [
+          { key: 'content1', url: 'http://', content: '' },
+          { key: 'content2', url: 'http://', content: '' },
+        ];
+
         const toggle = document.querySelector('.toggle');
         const menu = document.querySelector('.menu');
         const items = document.querySelectorAll('.item');
@@ -66,9 +66,21 @@
           item.addEventListener('keypress', toggleItem, false);
         }
         document.addEventListener('click', closeSubmenu, false);
+
+        $('.subitem').on('click', function () {
+          //var usersid = $(this).attr('id');
+          var key = $(this).data('key');
+
+          alert(arryContent.find((element) => element.key === key).url);
+          //post code
+        });
       });
     </script>
     <style>
+      .container {
+        display: flex;
+        flex-flow: column wrap;
+      }
       /* Basic styling */
       * {
         box-sizing: border-box;
@@ -252,39 +264,46 @@
     </style>
   </head>
 
-  
-
   <body>
-    <nav>
-      <ul class="menu">
-        <li class="logo"><a href="#">MVP CAMP</a></li>
-        <li class="item"><a href="#">Home</a></li>
-        <li class="item"><a href="#">About</a></li>
-        <li class="item has-submenu">
-          <a tabindex="0">Services</a>
-          <ul class="submenu">
-            <li class="subitem"><a href="#">Design</a></li>
-            <li class="subitem"><a href="#">Development</a></li>
-            <li class="subitem"><a href="#">SEO</a></li>
-            <li class="subitem"><a href="#">Copywriting</a></li>
-          </ul>
-        </li>
-        <li class="item has-submenu">
-          <a tabindex="0">Plans</a>
-          <ul class="submenu">
-            <li class="subitem"><a href="#">Freelancer</a></li>
-            <li class="subitem"><a href="#">Startup</a></li>
-            <li class="subitem"><a href="#">Enterprise</a></li>
-          </ul>
-        </li>
-        <li class="item"><a href="#">Blog</a></li>
-        <li class="item"><a href="#">Contact</a></li>
-        <li class="item button"><a href="#">Log In</a></li>
-        <li class="item button secondary"><a href="#">Sign Up</a></li>
-        <li class="toggle">
-          <a href="#"><i class="fas fa-bars"></i></a>
-        </li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nav>
+        <ul class="menu">
+          <li class="logo"><a href="#">MVP CAMP</a></li>
+          <li class="item"><a href="#">Home</a></li>
+          <li class="item"><a href="#">About</a></li>
+          <li class="item has-submenu">
+            <a tabindex="0">Services</a>
+            <ul class="submenu">
+              <li class="subitem"><a href="#">Design</a></li>
+              <li class="subitem"><a href="#">Development</a></li>
+              <li class="subitem"><a href="#">SEO</a></li>
+              <li class="subitem"><a href="#">Copywriting</a></li>
+            </ul>
+          </li>
+          <li class="item has-submenu">
+            <a tabindex="0">Plans</a>
+            <ul class="submenu">
+              <li class="subitem">
+                <a href="#" click="javascript:alert('');">Freelancer</a>
+              </li>
+              <li class="subitem" data-key="content1">
+                <a href="#">Startup</a>
+              </li>
+              <li class="subitem"><a href="#">Enterprise</a></li>
+            </ul>
+          </li>
+          <li class="item"><a href="#">Blog</a></li>
+          <li class="item"><a href="#">Contact</a></li>
+          <li class="item button"><a href="#">Log In</a></li>
+          <li class="item button secondary"><a href="#">Sign Up</a></li>
+          <li class="toggle">
+            <a href="#"><i class="fas fa-bars"></i></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="content">
+        
+      </div>
+    </div>
   </body>
 </html>
