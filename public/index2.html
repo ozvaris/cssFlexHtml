@@ -9,8 +9,8 @@
     <script>
       $(document).ready(function () {
         let arryContent = [
-          { key: 'content1', url: 'http://', content: '' },
-          { key: 'content2', url: 'http://', content: '' },
+          { key: 'content1', url: './index2.html', content: '' },
+          { key: 'content2', url: './index3.html', content: '' },
         ];
 
         const toggle = document.querySelector('.toggle');
@@ -69,9 +69,15 @@
 
         $('.subitem').on('click', function () {
           //var usersid = $(this).attr('id');
-          var key = $(this).data('key');
+          const key = $(this).data('key');
 
-          alert(arryContent.find((element) => element.key === key).url);
+          const content = arryContent.find((element) => element.key === key);
+
+          $('.content').innerHTML = content.content;
+
+          window.open(content.url, '_blank');
+
+          //alert(.url);
           //post code
         });
       });
@@ -289,7 +295,7 @@
               <li class="subitem" data-key="content1">
                 <a href="#">Startup</a>
               </li>
-              <li class="subitem"><a href="#">Enterprise</a></li>
+              <li class="subitem" data-key="content2"><a href="#">Enterprise</a></li>
             </ul>
           </li>
           <li class="item"><a href="#">Blog</a></li>
@@ -301,9 +307,7 @@
           </li>
         </ul>
       </nav>
-      <div class="content">
-        
-      </div>
+      <div class="content"></div>
     </div>
   </body>
 </html>
